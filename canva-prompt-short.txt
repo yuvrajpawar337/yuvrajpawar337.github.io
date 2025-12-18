@@ -1,0 +1,43 @@
+Create a light, minimal portfolio website design with the following specifications:
+
+COLOR SCHEME:
+- Background: Pure white (#FFFFFF) or soft off-white (#FAFAFA)
+- Text: Dark charcoal gray (#2C2C2C) for readability
+- Accents: Soft, muted tones (light blue-gray, soft lavender, or warm beige) - avoid bright colors
+- Borders: Very light gray (#E5E5E5)
+
+TYPOGRAPHY:
+- Modern sans-serif font (Inter, Poppins, or Montserrat)
+- Large, bold headings (48-64px for hero)
+- Clean body text (16-18px) with generous line spacing (1.6-1.8)
+- Generous letter spacing for headings
+
+LAYOUT:
+- Fixed navigation bar: white/transparent with logo left, menu right
+- Hero section: Centered, large heading, short tagline, generous padding (80-120px)
+- About: Two-column or single-column with ample spacing
+- Projects: Clean grid (2-3 columns) with white cards, subtle shadows, project thumbnails
+- Skills: Minimal list/grid with simple icons or text labels
+- Contact: Centered content with simple form or contact info
+- Footer: Minimal with copyright and social links
+
+DESIGN PRINCIPLES:
+- Generous white space (40-60px minimum between sections)
+- Subtle shadows only (very soft, avoid harsh drops)
+- Thin borders (1px) where needed
+- Minimal line-style icons
+- Smooth hover transitions (200-300ms)
+- Consistent grid alignment
+- Clean, professional aesthetic
+
+SECTIONS TO INCLUDE:
+1. Navigation/Header
+2. Hero/Introduction
+3. About Me
+4. Skills/Technologies
+5. Projects/Portfolio
+6. Contact
+7. Footer
+
+STYLE: Think Apple website aesthetic - clean, modern, minimal, with focus on content readability and visual breathing room. Avoid dark colors, busy patterns, and cluttered layouts.
+
