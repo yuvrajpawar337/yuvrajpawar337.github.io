@@ -3,548 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvraj Pawar | Lead DevOps & Cloud Engineering Leader</title>
+    <title>Yuvraj Pawar | Lead DevOps Engineer — Cloud, Platform Engineering, SRE &amp; AIOps</title>
+    <meta name="description" content="Yuvraj Pawar — Lead DevOps Engineer with 8 years architecting scalable, secure, high-availability systems across AWS, GCP, and Azure. Cloud, Platform Engineering, SRE &amp; AIOps.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #FFFFFF;
-            color: #1A1A1A;
-            overflow-x: hidden;
-        }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0d1117',
+                        panel: '#161b22',
+                        line: '#30363d',
+                        heading: '#f0f6fc',
+                        muted: '#8b949e',
+                        accent: {
+                            green: '#3fb950',
+                            cyan: '#56d4dd',
+                            amber: '#d29922'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+                    }
+                }
+            }
+        };
+    </script>
 
-        /* Hyper Animation for Nav Indicator */
-        .nav-container {
-            position: relative;
-        }
-        #nav-indicator {
-            position: absolute;
-            height: 2px;
-            background-color: #1A1A1A;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            bottom: 0;
-            pointer-events: none;
-        }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
-        }
-
-        .project-card:hover .project-img {
-            transform: scale(1.08) translateY(-5px);
-        }
-
-        /* Smooth Profile Overlay */
-        .hero-blob {
-            background: linear-gradient(135deg, #E8F0F6 0%, #F5F3FF 100%);
-            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
-            animation: blob-float 20s infinite alternate;
-            filter: blur(40px);
-        }
-
-        @keyframes blob-float {
-            0% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; transform: scale(1); }
-            100% { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; transform: scale(1.1); }
-        }
-
-        .profile-overlay {
-            /* Fade only the left edge, keep right side solid */
-            mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
-        }
-
-        .experience-line {
-            position: relative;
-        }
-        .experience-line::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, #E5E5E5 0%, #E5E5E5 80%, transparent 100%);
-        }
-
-        /* Reveal Animation on Scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-bold tracking-tighter uppercase">Yuvraj Pawar</div>
-            <div class="hidden md:flex items-center space-x-1 nav-container">
-                <a href="#home" class="nav-item px-5 py-2 text-xs font-bold tracking-widest hover:text-slate-500 transition-colors">HOME</a>
-                <a href="#about" class="nav-item px-5 py-2 text-xs font-bold tracking-widest hover:text-slate-500 transition-colors">ABOUT</a>
-                <a href="#skills" class="nav-item px-5 py-2 text-xs font-bold tracking-widest hover:text-slate-500 transition-colors">SKILLS</a>
-                <a href="#projects" class="nav-item px-5 py-2 text-xs font-bold tracking-widest hover:text-slate-500 transition-colors">PROJECTS</a>
-                <a href="#experience" class="nav-item px-5 py-2 text-xs font-bold tracking-widest hover:text-slate-500 transition-colors">EXPERIENCE</a>
-                <a href="#contact" class="nav-item px-5 py-2 text-xs font-bold tracking-widest hover:text-slate-500 transition-colors">CONTACT</a>
+    <nav id="site-nav" class="fixed top-0 inset-x-0 z-50 nav-glass">
+        <div class="section-container flex items-center justify-between h-20">
+            <a href="#home" class="font-mono text-sm text-heading flex items-center">
+                <span class="text-accent-green">yuvraj</span><span class="text-muted">@</span><span class="text-accent-cyan">devops</span><span class="text-muted">:~$</span><span class="caret" aria-hidden="true"></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-1 nav-container relative" id="nav-links">
+                <a href="#home" class="nav-item">home</a>
+                <a href="#skills" class="nav-item">skills</a>
+                <a href="#projects" class="nav-item">projects</a>
+                <a href="#experience" class="nav-item">experience</a>
+                <a href="#credentials" class="nav-item">credentials</a>
+                <a href="#contact" class="nav-item">contact</a>
                 <div id="nav-indicator"></div>
             </div>
-            <a href="docs/Yuvraj-Pawar-Lead-Devops.pdf" download class="hidden md:block px-6 py-2.5 bg-black text-white text-[10px] font-black tracking-widest rounded-full hover:bg-slate-800 transform hover:-translate-y-0.5 transition-all shadow-lg shadow-slate-200">
-                DOWNLOAD RESUME
-            </a>
+
+            <div class="flex items-center gap-3">
+                <a href="docs/Yuvraj-Pawar-Resume.pdf" download="Yuvraj-Pawar-Resume.pdf" class="hidden md:inline-flex resume-chip">
+                    <i data-lucide="download" class="w-3.5 h-3.5" aria-hidden="true"></i> resume.pdf
+                </a>
+                <button id="nav-toggle" class="md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+                    <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu md:hidden" hidden>
+            <a href="#home">home</a>
+            <a href="#skills">skills</a>
+            <a href="#projects">projects</a>
+            <a href="#experience">experience</a>
+            <a href="#credentials">credentials</a>
+            <a href="#contact">contact</a>
+            <a href="docs/Yuvraj-Pawar-Resume.pdf" download="Yuvraj-Pawar-Resume.pdf" class="text-accent-green">download resume.pdf</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-48 pb-24 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1 reveal">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-black tracking-widest mb-8">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
-                    AVAILABLE FOR LEADERSHIP ROLES
-                </span>
-                <h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-8">
-                    Building <br><span class="text-slate-300">Resilient</span> Cloud.
-                </h1>
-                <p class="text-xl text-slate-500 mb-12 leading-relaxed max-w-lg font-medium">
-                    7+ years of expertise architecting high-availability systems. Specializing in foundational ML data platforms and enterprise-scale SRE.
-                </p>
-            <div class="flex flex-wrap gap-5">
-                <a href="#projects" class="px-10 py-5 bg-[#1A1A1A] text-white rounded-2xl font-bold text-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transform hover:-translate-y-1 transition-all flex items-center gap-3">
-                    View Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-                <a href="#contact" class="px-10 py-5 bg-white border border-slate-200 rounded-2xl font-bold text-sm hover:bg-slate-50 transition-all">
-                    Let's Talk
-                </a>
-            </div>
-            </div>
-            <div class="order-1 md:order-2 flex justify-center relative reveal" style="transition-delay: 200ms;">
-                <div class="absolute inset-0 hero-blob"></div>
-                <div class="relative max-w-[450px] flex items-end justify-center rounded-3xl profile-overlay">
-                    <img src="img/profile.png" alt="Yuvraj Pawar" class="w-full h-auto object-contain rounded-3xl z-10">
-                </div>
-            </div>
-        </div>
-    </section>
+    <main>
+        <!-- Hero -->
+        <section id="home" class="hero-section relative pt-36 pb-24 px-6 min-h-screen flex items-center overflow-hidden">
+            <div id="vanta-bg" class="absolute inset-0 -z-20"></div>
+            <div class="hero-fallback-bg absolute inset-0 -z-10" aria-hidden="true"></div>
 
-    <!-- Skills -->
-    <section id="skills" class="py-32 bg-[#FAFAFA] border-y border-slate-100 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 reveal">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Skills &amp; Stack</h2>
-                    <p class="text-slate-500 text-lg font-medium max-w-2xl">
-                        End-to-end DevOps, SRE, and MLOps/AIOps capabilities across AWS, Azure, and GCP — from infrastructure as code to
-                        production observability and ML platform reliability.
+            <div class="section-container grid md:grid-cols-[1.15fr_0.85fr] gap-16 items-center relative z-10 w-full">
+                <div class="reveal">
+                    <span class="status-badge">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        status --available-for-leadership-roles
+                    </span>
+
+                    <h1 class="hero-heading mt-8">Yuvraj Pawar</h1>
+
+                    <p class="hero-role font-mono text-accent-green text-lg md:text-xl mt-4">
+                        <span id="typewriter"></span><span class="caret" aria-hidden="true"></span>
                     </p>
-                </div>
-                <div class="text-xs font-black tracking-[0.25em] text-slate-400 uppercase">
-                    7+ Years · Multi-Cloud · Platform Engineering
-                </div>
-            </div>
 
-            <div class="grid md:grid-cols-3 gap-10 text-sm text-slate-600 reveal">
-                <!-- Cloud & MLOps -->
-                <div class="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm">
-                    <p class="text-[10px] font-black tracking-[0.3em] text-slate-400 uppercase mb-4">Cloud &amp; MLOps / AIOps</p>
-                    <p class="font-semibold text-slate-900 mb-4">AWS · Azure · GCP</p>
-                    <ul class="space-y-2">
-                        <li><span class="font-semibold text-slate-800">AWS:</span> VPC, EC2, S3, Lambda, RDS, API Gateway, SQS/SNS, ECS, EKS, CloudWatch, CloudTrail, IAM, CloudFront, Data Lake, SageMaker, Bedrock.</li>
-                        <li><span class="font-semibold text-slate-800">Azure:</span> VNet, VM, AKS, CosmosDB, Neo4j, Blob Storage, Key Vault, Databricks, App Service, API Management, Transit Gateway, NSG.</li>
-                        <li><span class="font-semibold text-slate-800">GCP:</span> Compute Engine, VPC, Firewall Rules, Cloud SQL, BigQuery, GKE.</li>
-                        <li><span class="font-semibold text-slate-800">MLOps / AIOps:</span> model-serving on Kubernetes/EKS, ML data lakes, Bedrock/SageMaker pipelines, and production model monitoring with Prometheus, Grafana, and Loki.</li>
-                    </ul>
-                </div>
+                    <p class="hero-summary mt-8 max-w-xl">
+                        Results-driven DevOps and Cloud Engineering leader with 8 years architecting and operating scalable, secure, high-availability systems across AWS, GCP, and Azure. Lead a team of 5 and own infrastructure across an AI/ML product portfolio — building agentic DevOps (AIOps) assistants for alerting, root-cause analysis, incident resolution, and cost optimization.
+                    </p>
 
-                <!-- Platform & Delivery -->
-                <div class="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm">
-                    <p class="text-[10px] font-black tracking-[0.3em] text-slate-400 uppercase mb-4">Platform &amp; Delivery</p>
-                    <p class="font-semibold text-slate-900 mb-4">Kubernetes · IaC · CI/CD</p>
-                    <ul class="space-y-2">
-                        <li><span class="font-semibold text-slate-800">Containerisation:</span> Docker, Kubernetes (EKS, AKS, GKE, bare-metal).</li>
-                        <li><span class="font-semibold text-slate-800">IaC:</span> Terraform, Terragrunt, Ansible, Chef.</li>
-                        <li><span class="font-semibold text-slate-800">CI/CD:</span> Jenkins, GitHub Actions, GitLab CI, ArgoCD, Azure DevOps, Bitbucket pipelines.</li>
-                        <li><span class="font-semibold text-slate-800">Linux &amp; Automation:</span> Linux server configuration &amp; troubleshooting, Bash scripting, Python (incl. Boto), Rundeck, cron-based automation.</li>
-                    </ul>
-                </div>
-
-                <!-- Observability & Data -->
-                <div class="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm">
-                    <p class="text-[10px] font-black tracking-[0.3em] text-slate-400 uppercase mb-4">Observability &amp; Data</p>
-                    <p class="font-semibold text-slate-900 mb-4">Monitoring · Databases · Tooling</p>
-                    <ul class="space-y-2">
-                        <li><span class="font-semibold text-slate-800">Monitoring &amp; Logging:</span> Prometheus, Loki, Grafana, ELK, Nagios, CloudWatch.</li>
-                        <li><span class="font-semibold text-slate-800">Databases:</span> MySQL, PostgreSQL, MongoDB, ScyllaDB, Neo4j.</li>
-                        <li><span class="font-semibold text-slate-800">Version Control:</span> GitHub, GitLab, Bitbucket.</li>
-                        <li><span class="font-semibold text-slate-800">Security &amp; Reliability:</span> ORCA vulnerability scanning, backup &amp; DR automation, high-availability architectures across clouds.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Innovative Projects -->
-    <section id="projects" class="py-32 bg-[#FAFAFA] border-y border-slate-100 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8 reveal">
-                <div class="max-w-2xl">
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Innovative Systems</h2>
-                    <p class="text-slate-500 text-lg font-medium leading-relaxed">Leading-edge MLOps and AIOps architectures engineered for global enterprise workloads.</p>
-                </div>
-                <div class="flex gap-3">
-                    <button class="w-12 h-12 flex items-center justify-center border border-slate-200 rounded-full hover:bg-white hover:shadow-md transition-all"><i data-lucide="arrow-left" class="w-5 h-5"></i></button>
-                    <button class="w-12 h-12 flex items-center justify-center border border-slate-200 rounded-full hover:bg-white hover:shadow-md transition-all"><i data-lucide="arrow-right" class="w-5 h-5"></i></button>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-10">
-                <!-- Project 1 -->
-                <div class="group bg-white border border-slate-100 rounded-[32px] overflow-hidden hover:shadow-[0_32px_64px_rgba(0,0,0,0.06)] transition-all duration-700 reveal" style="transition-delay: 100ms;">
-                    <div class="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
-                        <i data-lucide="cpu" class="w-24 h-24 text-slate-200 project-img transition-all duration-700 ease-out"></i>
-                    </div>
-                    <div class="p-10">
-                        <div class="flex gap-2 mb-6">
-                            <span class="text-[9px] font-black tracking-widest px-3 py-1 bg-slate-100 rounded-full">AIOPS</span>
-                            <span class="text-[9px] font-black tracking-widest px-3 py-1 bg-blue-50 text-blue-600 rounded-full">AWS</span>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Autonomous Observability</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">
-                            Predictive anomaly detection system utilizing Prometheus & Loki to identify infrastructure degradation patterns before impact.
-                        </p>
-                        <a href="#" class="text-xs font-black tracking-widest flex items-center gap-3 group-hover:gap-5 transition-all uppercase">
-                            View Case Study <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    <div class="flex flex-wrap gap-4 mt-10">
+                        <a href="#experience" class="btn-primary">
+                            view experience <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                        <a href="docs/Yuvraj-Pawar-Resume.pdf" download="Yuvraj-Pawar-Resume.pdf" class="btn-secondary">
+                            download resume <i data-lucide="download" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="group bg-white border border-slate-100 rounded-[32px] overflow-hidden hover:shadow-[0_32px_64px_rgba(0,0,0,0.06)] transition-all duration-700 reveal" style="transition-delay: 200ms;">
-                    <div class="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-purple-500 opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
-                        <i data-lucide="activity" class="w-24 h-24 text-slate-200 project-img transition-all duration-700 ease-out"></i>
-                    </div>
-                    <div class="p-10">
-                        <div class="flex gap-2 mb-6">
-                            <span class="text-[9px] font-black tracking-widest px-3 py-1 bg-slate-100 rounded-full">MLOPS</span>
-                            <span class="text-[9px] font-black tracking-widest px-3 py-1 bg-purple-50 text-purple-600 rounded-full">BEDROCK</span>
+                <div class="reveal" style="transition-delay: 150ms;">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="terminal-title">whoami.sh</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">GenAI Lifecycle Forge</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">
-                            Comprehensive automated pipelines for fine-tuning Foundation Models on AWS Bedrock with integrated lineage tracking.
-                        </p>
-                        <a href="#" class="text-xs font-black tracking-widest flex items-center gap-3 group-hover:gap-5 transition-all uppercase">
-                            Architecture Brief <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="group bg-white border border-slate-100 rounded-[32px] overflow-hidden hover:shadow-[0_32px_64px_rgba(0,0,0,0.06)] transition-all duration-700 reveal" style="transition-delay: 300ms;">
-                    <div class="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-amber-500 opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
-                        <i data-lucide="database" class="w-24 h-24 text-slate-200 project-img transition-all duration-700 ease-out"></i>
-                    </div>
-                    <div class="p-10">
-                        <div class="flex gap-2 mb-6">
-                            <span class="text-[9px] font-black tracking-widest px-3 py-1 bg-slate-100 rounded-full">FINOPS</span>
-                            <span class="text-[9px] font-black tracking-widest px-3 py-1 bg-amber-50 text-amber-600 rounded-full">GCP</span>
+                        <div class="terminal-body font-mono text-sm">
+                            <p><span class="prompt">$</span>whoami</p>
+                            <p class="output">yuvraj-pawar — lead devops engineer</p>
+                            <p><span class="prompt">$</span>uptime --career</p>
+                            <p class="output">8 years | AWS · GCP · Azure</p>
+                            <p><span class="prompt">$</span>cat location.txt</p>
+                            <p class="output">Hinjewadi, Pune, India</p>
+                            <div class="monitor-frame mt-4">
+                                <img src="img/profile.webp" alt="Portrait of Yuvraj Pawar" class="monitor-photo" width="900" height="1205" loading="eager">
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Cognitive Cloud Scaling</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">
-                            Cost-intelligent scaling engine driven by real-time BigQuery usage analytics, achieving 35% optimization in cloud expenditure.
-                        </p>
-                        <a href="#" class="text-xs font-black tracking-widest flex items-center gap-3 group-hover:gap-5 transition-all uppercase">
-                            Review Repo <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience -->
-    <section id="experience" class="py-32 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-24 reveal">Professional Journey</h2>
-            
-            <div class="space-y-20">
-                <!-- Indexnine -->
-                <div class="grid md:grid-cols-[200px_1fr] gap-12 reveal">
-                    <div class="text-slate-400 font-bold text-xs tracking-widest pt-2">MAR 2025 — PRESENT</div>
-                    <div class="experience-line pl-12">
-                        <h3 class="text-2xl font-bold mb-2">Lead DevOps Engineer</h3>
-                        <p class="text-lg font-semibold text-slate-800 mb-8">Indexnine Technologies Pvt. Ltd. · Pune, India</p>
-                        <ul class="space-y-6 text-slate-500 font-medium">
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Optimized the observability stack by evaluating and rolling out Datadog alternatives, improving signal quality while meaningfully reducing monitoring spend.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Elevated security posture by centralizing environment variables and application secrets in AWS Secrets Manager and tightening security groups, WAF rules, and IAM roles.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Led PostgreSQL migration from EC2 to Amazon RDS, enabling automated backups, scaling, and significantly reducing operational toil for the team.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Defined and executed a Disaster Recovery roadmap with Terraform-based automation and cross‑region S3 replication to guarantee rapid, repeatable environment recovery.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Automated EC2 provisioning pipelines for web application servers, cutting manual setup time from hours to minutes and enforcing consistent standards.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Built Prometheus &amp; Grafana dashboards to track ML model latency, throughput, and error rates, giving product teams clear visibility into model performance in production.
-                            </li>
-                        </ul>
-                    </div>
+        <!-- Stats -->
+        <section class="stats-bar py-14 px-6 border-y" aria-label="Career highlights">
+            <div class="section-container grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="reveal">
+                    <p class="stat-number" data-count="8">0</p>
+                    <p class="stat-label">years experience</p>
+                </div>
+                <div class="reveal">
+                    <p class="stat-number" data-count="5">0</p>
+                    <p class="stat-label">engineers led</p>
+                </div>
+                <div class="reveal">
+                    <p class="stat-number" data-count="3">0</p>
+                    <p class="stat-label">clouds: AWS · GCP · Azure</p>
+                </div>
+                <div class="reveal">
+                    <p class="stat-number" data-count="3000" data-suffix="+">0</p>
+                    <p class="stat-label">servers managed</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="py-28 px-6">
+            <div class="section-container">
+                <div class="reveal mb-14">
+                    <p class="eyebrow mb-3">$ ls ./skills --all</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold">Skills &amp; Stack</h2>
+                    <p class="text-muted mt-3 max-w-2xl">Core skills across CI/CD, IaC, containers, AI/MLOps, multi-cloud, observability, and security.</p>
                 </div>
 
-                <!-- One2N -->
-                <div class="grid md:grid-cols-[200px_1fr] gap-12 reveal">
-                    <div class="text-slate-400 font-bold text-xs tracking-widest pt-2">JAN 2025 — MAR 2025</div>
-                    <div class="experience-line pl-12">
-                        <h3 class="text-2xl font-bold mb-2">Site Reliability Engineer</h3>
-                        <p class="text-lg font-semibold text-slate-800 mb-8">One2N Consulting Pvt. Ltd. · Pune, India</p>
-                        <ul class="space-y-6 text-slate-500 font-medium">
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Developed scalable REST APIs using Python (Flask/FastAPI) and containerized microservices with Docker and Kubernetes for secure, high‑performance delivery.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Implemented end‑to‑end observability using Prometheus, Grafana, Loki, and Promtail, enabling proactive detection and faster RCA for production issues.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Authored reusable Helm charts and GitHub Actions CI pipelines for Kubernetes deployments, standardizing rollout strategies across multiple services.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Managed and optimized AWS EKS clusters and bare‑metal Kubernetes environments, tuning autoscaling and security for mission‑critical workloads.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Automated local development environment setup and CI/CD workflows (GitHub Actions, Azure DevOps), dramatically improving developer onboarding speed.
-                            </li>
-                        </ul>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">ci-cd.gitops</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="git-branch" class="skill-icon" aria-hidden="true"></i>
+                            <h3>CI/CD &amp; GitOps</h3>
+                            <p class="skill-tools">ArgoCD, GitHub Actions, Jenkins, GitLab CI, Azure DevOps, Bitbucket Pipelines</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">iac.platform</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="layers" class="skill-icon" aria-hidden="true"></i>
+                            <h3>IaC &amp; Platform</h3>
+                            <p class="skill-tools">Terraform, Terragrunt, Crossplane, Ansible, Chef; Internal Developer Platforms (IDP), Backstage, Self-Service Infrastructure</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">containers.orch</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="box" class="skill-icon" aria-hidden="true"></i>
+                            <h3>Containers &amp; Orchestration</h3>
+                            <p class="skill-tools">Docker, Kubernetes, GKE Autopilot, Amazon EKS, Helm</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">ai.mlops</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="brain-circuit" class="skill-icon" aria-hidden="true"></i>
+                            <h3>AI &amp; MLOps</h3>
+                            <p class="skill-tools">Agentic AI / AIOps, LLMs, Small Language Models (SLMs), Amazon Bedrock, Azure AI Foundry, Vertex AI, Hugging Face, Kubeflow</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">cloud.aws</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="cloud" class="skill-icon" aria-hidden="true"></i>
+                            <h3>Cloud — AWS</h3>
+                            <p class="skill-tools">EC2, S3, VPC, EKS, ECS, RDS, Lambda, IAM, API Gateway, SQS, SNS, CloudWatch, CloudTrail, Bedrock, SageMaker, CloudFront</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">cloud.gcp</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="cloud-cog" class="skill-icon" aria-hidden="true"></i>
+                            <h3>Cloud — GCP</h3>
+                            <p class="skill-tools">GKE, Cloud Run, Vertex AI, BigQuery, Cloud SQL, Compute Engine, Cloud Build, VPC</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">cloud.azure</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="cloud-fog" class="skill-icon" aria-hidden="true"></i>
+                            <h3>Cloud — Azure</h3>
+                            <p class="skill-tools">AKS, VNET, AI Foundry, Cosmos DB, Key Vault, Blob Storage, Databricks, App Service, API Management</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">observability</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="activity" class="skill-icon" aria-hidden="true"></i>
+                            <h3>Observability</h3>
+                            <p class="skill-tools">Prometheus, Grafana, Loki, Promtail, ELK, Nagios, Datadog, New Relic</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">lang.data</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="code-2" class="skill-icon" aria-hidden="true"></i>
+                            <h3>Languages &amp; Data</h3>
+                            <p class="skill-tools">Python (Boto3), Bash, React, Flask, FastAPI; PostgreSQL, MySQL, MongoDB, ScyllaDB, Neo4j</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-panel reveal">
+                        <div class="skill-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="skill-filename">security</span>
+                        </div>
+                        <div class="skill-panel-body">
+                            <i data-lucide="shield-check" class="skill-icon" aria-hidden="true"></i>
+                            <h3>Security &amp; Practices</h3>
+                            <p class="skill-tools">Least-Privilege IAM, AWS WAF, AWS Secrets Manager, ORCA, Upwind, SRE, ITIL, Disaster Recovery</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Talentica -->
-                <div class="grid md:grid-cols-[200px_1fr] gap-12 reveal">
-                    <div class="text-slate-400 font-bold text-xs tracking-widest pt-2">NOV 2019 — JAN 2025</div>
-                    <div class="experience-line pl-12">
-                        <h3 class="text-2xl font-bold mb-2">Lead CloudOps Engineer</h3>
-                        <p class="text-lg font-semibold text-slate-800 mb-8">Talentica Software India Pvt. Ltd. (Digital Turbine) · Pune, India</p>
-                        <ul class="space-y-6 text-slate-500 font-medium max-w-2xl">
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Led a team of CloudOps engineers, rolling out ITIL‑aligned incident and change management practices to stabilize large‑scale GCP workloads.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Planned epics and sprints for critical platform initiatives, aligning engineering priorities with business KPIs and delivery timelines.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Automated complex GCP infrastructure using Terragrunt, Terraform, Chef, and ArgoCD to deliver resilient, multi‑tier GKE environments with minimal downtime.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Managed GCP services such as Compute Engine, Storage, BigQuery, IAM, and Kubernetes Engine, ensuring scalability and cost efficiency at production scale.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Built robust monitoring, backup, and CI/CD pipelines across AWS &amp; GCP using Prometheus, Grafana, Nagios, Jenkins, and GitLab CI, raising platform reliability and release quality.
-                            </li>
-                        </ul>
-                    </div>
+        <!-- Projects -->
+        <section id="projects" class="py-28 px-6 bg-panel/40 border-y border-line">
+            <div class="section-container">
+                <div class="reveal mb-14">
+                    <p class="eyebrow mb-3">$ ls ./projects --scenarios</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold">Projects</h2>
+                    <p class="text-muted mt-3 max-w-2xl">Illustrative case studies built around the real stack and outcomes above — concepts shaped by production work, not client-confidential specifics.</p>
                 </div>
 
-                <!-- Admaxim -->
-                <div class="grid md:grid-cols-[200px_1fr] gap-12 reveal">
-                    <div class="text-slate-400 font-bold text-xs tracking-widest pt-2">JUL 2018 — NOV 2019</div>
-                    <div class="experience-line pl-12">
-                        <h3 class="text-2xl font-bold mb-2">Linux System Administrator</h3>
-                        <p class="text-lg font-semibold text-slate-800 mb-8">Admaxim India Pvt. Ltd. · Pune, India</p>
-                        <ul class="space-y-6 text-slate-500 font-medium max-w-2xl">
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Implemented and supported AWS‑based infrastructure using EC2, EBS, ELB, Auto Scaling, and S3 with lifecycle policies for cost‑efficient storage.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Launched and hardened EC2 instances (Linux, Ubuntu, RHEL, Windows) with shell‑script bootstrapping, IAM roles, MFA, and secure access patterns.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Created EBS snapshots and AMIs for backup and launch configurations, underpinning highly available, fault‑tolerant environments.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Automated routine operations and deployment workflows using AWS‑CLI, Rundeck, Ansible, and shell/cron jobs to reduce manual intervention.
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <i data-lucide="check-circle-2" class="w-5 h-5 text-slate-900 shrink-0 mt-0.5"></i>
-                                Managed Linux servers and troubleshot production web and database services, ensuring stable performance and timely incident resolution.
-                            </li>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="project-panel reveal">
+                        <div class="project-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="project-filename">aiops-assistant.py</span>
+                        </div>
+                        <div class="project-panel-body">
+                            <h3>Agentic AIOps Incident Assistant</h3>
+                            <p class="project-desc">
+                                A conversational on-call companion that summarizes noisy alert storms into a single root-cause narrative, proposes a ranked remediation plan, and flags the estimated cost impact of each fix — cutting the time from page to first action.
+                            </p>
+                            <div class="tag-row">
+                                <span class="tag-chip">LLMs</span>
+                                <span class="tag-chip">Amazon Bedrock</span>
+                                <span class="tag-chip">Python</span>
+                                <span class="tag-chip">Kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-panel reveal" style="transition-delay: 100ms;">
+                        <div class="project-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="project-filename">idp-platform.yaml</span>
+                        </div>
+                        <div class="project-panel-body">
+                            <h3>Multi-Cloud Self-Service Developer Platform</h3>
+                            <p class="project-desc">
+                                An internal developer portal where engineers request a new service, database, or environment from a catalog of golden-path templates — Crossplane and ArgoCD reconcile the request into running infrastructure without a ticket ever touching the platform team.
+                            </p>
+                            <div class="tag-row">
+                                <span class="tag-chip">Backstage</span>
+                                <span class="tag-chip">Crossplane</span>
+                                <span class="tag-chip">ArgoCD</span>
+                                <span class="tag-chip">GitHub Actions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-panel reveal" style="transition-delay: 200ms;">
+                        <div class="project-panel-header">
+                            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+                            <span class="project-filename">genai-pipeline.ipynb</span>
+                        </div>
+                        <div class="project-panel-body">
+                            <h3>Serverless GenAI/MLOps Pipeline</h3>
+                            <p class="project-desc">
+                                An ingestion-to-evaluation pipeline that packages Hugging Face transformers and small language models for serverless inference, with Vertex AI Pipelines automating training and evaluation runs on every model update.
+                            </p>
+                            <div class="tag-row">
+                                <span class="tag-chip">Hugging Face</span>
+                                <span class="tag-chip">Cloud Run</span>
+                                <span class="tag-chip">Vertex AI</span>
+                                <span class="tag-chip">Kubeflow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-28 px-6">
+            <div class="section-container">
+                <div class="reveal mb-16">
+                    <p class="eyebrow mb-3">$ git log --oneline --all</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold">Experience</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-line-fill"></div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">Mar 2025 — Present</p>
+                        <h3 class="timeline-role">Lead DevOps Engineer</h3>
+                        <p class="timeline-org">Indexnine Technologies Pvt. Ltd. · Pune, India</p>
+                        <ul class="timeline-bullets">
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Lead 5 engineers; own the in-house Developer Platform and infrastructure across most of Indexnine's AI/ML product portfolio.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Built a suite of agentic DevOps (AIOps) assistants — automated alert summarization, incident root-cause analysis, a resolution-suggestion agent, a cost-optimization advisor, and a CI/CD troubleshooting agent — reducing on-call toil and accelerating incident response.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Designed and delivered an internal Developer Platform (IDP), now in beta, standardizing self-service provisioning and deployment with Backstage, Crossplane, ArgoCD, and GitHub Actions on Kubernetes.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Engineered pipelines to deploy Small Language Models (SLMs) into a client's internal summarization product, with standardized packaging, rollout, and versioning.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Designed and deployed scalable, multi-tenant infrastructure for an AI test-generation product (TMAP-based) serving multiple enterprise customers.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Deployed custom Hugging Face transformers on Cloud Run (2nd-gen), achieving sub-second cold starts and a 40% cost reduction versus persistent GPU instances.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Migrated microservices to GKE Autopilot, reducing operational overhead and improving scalability.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Built end-to-end MLOps workflows with Vertex AI Pipelines (Kubeflow SDK), automating ingestion, training, and evaluation for production models.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Led PostgreSQL migration from EC2 to Amazon RDS, cutting maintenance workload by 75% and improving uptime with automated backups and scaling.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Hardened security and resilience — least-privilege IAM, AWS WAF, AWS Secrets Manager, and a cross-region S3 disaster-recovery roadmap.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Drive pre-sales DevOps strategy for prospective clients, including architecture recommendations and FTE/effort estimation for new products.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">Jan 2025 — Mar 2025</p>
+                        <h3 class="timeline-role">Site Reliability Engineer</h3>
+                        <p class="timeline-org">One2N Consulting Pvt. Ltd. · Pune, India</p>
+                        <ul class="timeline-bullets">
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Managed and optimized Amazon EKS clusters for high availability and security, and built Kubernetes clusters from scratch on bare-metal servers.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Authored reusable Helm charts and standardized Kubernetes deployments following best practices.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Implemented comprehensive observability with Prometheus, Grafana, Loki, and Promtail for proactive monitoring and troubleshooting.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Designed CI pipelines with GitHub Actions and Azure DevOps for automated testing and deployment.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">Nov 2019 — Jan 2025</p>
+                        <h3 class="timeline-role">Lead CloudOps Engineer <span class="text-muted font-mono text-sm">(Project: Digital Turbine)</span></h3>
+                        <p class="timeline-org">Talentica Software India Pvt. Ltd. · Pune, India</p>
+                        <ul class="timeline-bullets">
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Led a team of Cloud Ops engineers operating a global GCP advertising platform managing 3000 servers, improving performance and reducing hosting costs.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Automated complex GCP infrastructure with Terraform and Terragrunt, and managed CI/CD of GKE clusters using ArgoCD.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Migrated applications to GKE Autopilot and implemented ITIL incident and change management practices.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Integrated the ORCA vulnerability scanner; wrote Python Lambda functions for CloudWatch alerts and S3 object notifications.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Monitored production with Nagios, Prometheus, Grafana, and Bash scripts; maintained Kafka/ZooKeeper clusters and Dockerized all applications.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">Jul 2018 — Nov 2019</p>
+                        <h3 class="timeline-role">Linux System Administrator</h3>
+                        <p class="timeline-org">Admaxim India Pvt. Ltd. · Pune, India</p>
+                        <ul class="timeline-bullets">
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Provisioned and bootstrapped EC2 fleets (Linux, Ubuntu, RHEL, Windows) via shell scripts for consistent deployments.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Configured Elastic Load Balancers and Auto Scaling Groups for a fault-tolerant, cost-efficient, highly available environment.</li>
+                            <li><i data-lucide="git-commit-horizontal" aria-hidden="true"></i>Implemented least-privilege IAM with MFA and S3 lifecycle policies; automated CI with Rundeck, Ansible, and shell scripts.</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Certification Badges (Black Minimal) -->
-    <section class="py-24 bg-[#1A1A1A] text-white px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-[10px] font-black tracking-[0.3em] uppercase mb-20 opacity-40">Verified Credentials</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
-                <div class="flex flex-col items-center gap-6 reveal">
-                    <div class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center p-5 shadow-2xl transition-transform hover:-rotate-6">
-                        <i data-lucide="award" class="w-full h-full text-black"></i>
-                    </div>
-                    <p class="text-[10px] font-black tracking-widest uppercase opacity-70">AWS Solutions Architect Pro</p>
+        <!-- Credentials -->
+        <section id="credentials" class="py-28 px-6 bg-panel/40 border-y border-line">
+            <div class="section-container">
+                <div class="reveal mb-14">
+                    <p class="eyebrow mb-3">$ cat ./credentials.md</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold">Credentials</h2>
                 </div>
-                <div class="flex flex-col items-center gap-6 reveal" style="transition-delay: 100ms;">
-                    <div class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center p-5 shadow-2xl transition-transform hover:rotate-6">
-                        <i data-lucide="shield-check" class="w-full h-full text-black"></i>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="credential-block reveal">
+                        <h3 class="font-mono text-sm text-accent-cyan uppercase tracking-widest mb-6">Education</h3>
+                        <div class="cred-badge">
+                            <i data-lucide="graduation-cap" aria-hidden="true"></i>
+                            <span>
+                                Bachelor of Engineering, Computer Science — 2017<br>
+                                Savitribai Phule Pune University (Sanjivani College of Engineering, Kopargaon)
+                            </span>
+                        </div>
                     </div>
-                    <p class="text-[10px] font-black tracking-widest uppercase opacity-70">Certified Ethical Hacker</p>
-                </div>
-                <div class="flex flex-col items-center gap-6 reveal" style="transition-delay: 200ms;">
-                    <div class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center p-5 shadow-2xl transition-transform hover:-rotate-6">
-                        <i data-lucide="layout-grid" class="w-full h-full text-black"></i>
+
+                    <div class="credential-block reveal" style="transition-delay: 100ms;">
+                        <h3 class="font-mono text-sm text-accent-cyan uppercase tracking-widest mb-6">Certifications</h3>
+                        <div class="grid gap-3">
+                            <div class="cred-badge">
+                                <i data-lucide="award" aria-hidden="true"></i>
+                                <span>AWS Certified Solutions Architect – Professional</span>
+                            </div>
+                            <div class="cred-badge">
+                                <i data-lucide="layout-grid" aria-hidden="true"></i>
+                                <span>HashiCorp Terraform Certified Associate</span>
+                            </div>
+                            <div class="cred-badge">
+                                <i data-lucide="server" aria-hidden="true"></i>
+                                <span>Red Hat Certified System Administrator (RHCSA)</span>
+                            </div>
+                            <div class="cred-badge">
+                                <i data-lucide="cpu" aria-hidden="true"></i>
+                                <span>Red Hat Certified Engineer (RHCE)</span>
+                            </div>
+                            <div class="cred-badge">
+                                <i data-lucide="shield-check" aria-hidden="true"></i>
+                                <span>Certified Ethical Hacker (CEH)</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-[10px] font-black tracking-widest uppercase opacity-70">Terraform Associate</p>
-                </div>
-                <div class="flex flex-col items-center gap-6 reveal" style="transition-delay: 300ms;">
-                    <div class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center p-5 shadow-2xl transition-transform hover:rotate-6">
-                        <i data-lucide="server" class="w-full h-full text-black"></i>
-                    </div>
-                    <p class="text-[10px] font-black tracking-widest uppercase opacity-70">Red Hat Engineer (RHCE)</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-40 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-6xl md:text-8xl font-bold tracking-tighter mb-10 reveal">Let's build.</h2>
-            <p class="text-xl text-slate-400 mb-20 leading-relaxed font-medium reveal">
-                Currently looking for high-impact leadership opportunities in DevOps, SRE, or Cloud Infrastructure.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 reveal">
-                <a href="mailto:yuvrajpawar337@gmail.com" class="group flex items-center gap-5 px-10 py-6 bg-slate-50 rounded-[32px] hover:bg-black hover:text-white transition-all duration-500">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:scale-90 transition-transform">
-                        <i data-lucide="mail" class="w-5 h-5 text-black"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-[10px] font-black tracking-widest opacity-40 uppercase mb-1">Email Me</p>
-                        <p class="font-bold">yuvrajpawar337@gmail.com</p>
-                    </div>
-                </a>
-                <a href="tel:9730755337" class="group flex items-center gap-5 px-10 py-6 bg-slate-50 rounded-[32px] hover:bg-black hover:text-white transition-all duration-500">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:scale-90 transition-transform">
-                        <i data-lucide="phone" class="w-5 h-5 text-black"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-[10px] font-black tracking-widest opacity-40 uppercase mb-1">Call Me</p>
-                        <p class="font-bold">+91 97307 55337</p>
-                    </div>
-                </a>
+        <!-- Contact -->
+        <section id="contact" class="py-28 px-6">
+            <div class="section-container">
+                <div class="reveal mb-14 text-center">
+                    <p class="eyebrow mb-3">$ ./contact.sh --send</p>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold">Let's build something reliable.</h2>
+                    <p class="text-muted mt-4 max-w-xl mx-auto">Open to Lead DevOps, Platform Engineering, and SRE/AIOps leadership opportunities.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+                    <a href="mailto:yuvrajpawar337@gmail.com" class="contact-tile">
+                        <div class="contact-icon"><i data-lucide="mail" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="contact-label">Email</p>
+                            <p class="text-sm font-medium break-all">yuvrajpawar337@gmail.com</p>
+                        </div>
+                    </a>
+                    <a href="tel:+919730755337" class="contact-tile">
+                        <div class="contact-icon"><i data-lucide="phone" aria-hidden="true"></i></div>
+                        <div>
+                            <p class="contact-label">Phone</p>
+                            <p class="text-sm font-medium">+91 9730755337</p>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yuvraj-pawar-686793104/" target="_blank" rel="noopener noreferrer" class="contact-tile">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+                        </div>
+                        <div>
+                            <p class="contact-label">LinkedIn</p>
+                            <p class="text-sm font-medium">yuvraj-pawar</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/yuvrajpawar337" target="_blank" rel="noopener noreferrer" class="contact-tile">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.99 3.24 9.22 7.73 10.72.56.1.77-.24.77-.54 0-.27-.01-1.16-.02-2.11-3.15.69-3.81-1.34-3.81-1.34-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.65 1.24 3.3.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.13 1.16a10.9 10.9 0 0 1 5.7 0c2.17-1.47 3.13-1.16 3.13-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.2.65.78.54A11.02 11.02 0 0 0 23 11.5C23 5.24 18.27.5 12 .5Z"/></svg>
+                        </div>
+                        <div>
+                            <p class="contact-label">GitHub</p>
+                            <p class="text-sm font-medium">yuvrajpawar337</p>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="py-16 border-t border-slate-100 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">
-            <p>© 2025 YUVRAJ PAWAR. ALL RIGHTS RESERVED.</p>
-            <div class="mt-8 md:mt-0 flex gap-10">
-                <a href="https://github.com/yuvrajpawar337" class="hover:text-black transition-colors">GITHUB</a>
-                <a href="https://www.linkedin.com/in/yuvraj-pawar-686793104/" class="hover:text-black transition-colors">LINKEDIN</a>
-                <a href="#home" class="hover:text-black transition-colors">BACK TO TOP</a>
+    <footer class="py-10 border-t border-line px-6">
+        <div class="section-container flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-xs text-muted">
+            <p>© <span id="footer-year">2026</span> Yuvraj Pawar. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="https://github.com/yuvrajpawar337" target="_blank" rel="noopener noreferrer">github</a>
+                <a href="https://www.linkedin.com/in/yuvraj-pawar-686793104/" target="_blank" rel="noopener noreferrer">linkedin</a>
+                <a href="#home">back to top</a>
             </div>
         </div>
     </footer>
 
-    <script>
-        lucide.createIcons();
-
-        // Hyper-Animated Sliding Nav Indicator
-        const navIndicator = document.getElementById('nav-indicator');
-        const navItems = document.querySelectorAll('.nav-item');
-        const sections = document.querySelectorAll('section');
-
-        function moveIndicator(target) {
-            const rect = target.getBoundingClientRect();
-            const parentRect = target.parentElement.getBoundingClientRect();
-            navIndicator.style.width = `${rect.width}px`;
-            navIndicator.style.left = `${rect.left - parentRect.left}px`;
-        }
-
-        // Initialize indicator
-        window.addEventListener('load', () => moveIndicator(navItems[0]));
-
-        // Scroll Reveal Logic
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // Scroll Spy & Indicator Sync
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navItems.forEach(item => {
-                if (item.getAttribute('href').includes(current)) {
-                    moveIndicator(item);
-                }
-            });
-        });
-
-        // Hover Effect for Nav
-        navItems.forEach(item => {
-            item.addEventListener('mouseenter', (e) => moveIndicator(e.target));
-            item.addEventListener('mouseleave', () => {
-                // Return to active section on leave
-                let current = '';
-                sections.forEach(section => {
-                    if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
-                });
-                navItems.forEach(i => {
-                    if (i.getAttribute('href').includes(current)) moveIndicator(i);
-                });
-            });
-        });
-    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

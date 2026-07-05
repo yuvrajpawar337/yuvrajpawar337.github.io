@@ -1,0 +1,687 @@
+/* ============================================================
+   Design tokens
+   ============================================================ */
+:root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel-hover: #1c2229;
+    --line: #30363d;
+    --text: #c9d1d9;
+    --heading: #f0f6fc;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --green-dim: #2ea043;
+    --cyan: #56d4dd;
+    --amber: #d29922;
+    --red: #f85149;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html.no-motion {
+    scroll-behavior: auto;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    color: var(--heading);
+}
+
+.font-mono, code {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+::selection {
+    background: var(--green-dim);
+    color: #0d1117;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.section-container {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+}
+
+.eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+/* ============================================================
+   Blinking caret
+   ============================================================ */
+.caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.1em;
+    background: var(--green);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.no-motion .caret {
+    animation: none;
+    opacity: 1;
+}
+
+/* ============================================================
+   Nav
+   ============================================================ */
+.nav-glass {
+    background: rgba(13, 17, 23, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-container {
+    position: relative;
+}
+
+.nav-item {
+    padding: 0.6rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    transition: color 0.25s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--heading);
+}
+
+#nav-indicator {
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+}
+
+.resume-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--green-dim);
+    color: var(--green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.resume-chip:hover {
+    background: rgba(63, 185, 80, 0.12);
+    transform: translateY(-2px);
+}
+
+#nav-toggle {
+    color: var(--heading);
+    padding: 0.4rem;
+}
+
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    transition: max-height 0.35s ease;
+}
+
+.mobile-menu.open {
+    max-height: 24rem;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text);
+    border-top: 1px solid var(--line);
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero-section {
+    position: relative;
+}
+
+#vanta-bg {
+    background: radial-gradient(ellipse at top, #161b22 0%, #0d1117 60%);
+}
+
+.hero-fallback-bg {
+    background:
+        linear-gradient(rgba(63, 185, 80, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(63, 185, 80, 0.06) 1px, transparent 1px),
+        radial-gradient(ellipse at top, #161b22 0%, #0d1117 60%);
+    background-size: 48px 48px, 48px 48px, cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.hero-fallback-bg.show {
+    opacity: 1;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--green);
+    background: rgba(63, 185, 80, 0.06);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+.no-motion .status-dot {
+    animation: none;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+.hero-heading {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.hero-role {
+    min-height: 1.6em;
+}
+
+.hero-summary {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    border-radius: 8px;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #06150a;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(63, 185, 80, 0.5);
+}
+
+.btn-secondary {
+    border: 1px solid var(--line);
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   Terminal window (hero card)
+   ============================================================ */
+.terminal-window {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+.terminal-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    background: #0d1117;
+    border-bottom: 1px solid var(--line);
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red { background: #f85149; }
+.dot-amber { background: #d29922; }
+.dot-green { background: #3fb950; }
+
+.terminal-title {
+    margin-left: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+}
+
+.terminal-body {
+    padding: 1.25rem;
+    line-height: 1.9;
+}
+
+.terminal-body .prompt {
+    color: var(--green);
+    margin-right: 0.5rem;
+}
+
+.terminal-body .output {
+    color: var(--cyan);
+    padding-left: 1.3rem;
+    margin-bottom: 0.4rem;
+}
+
+.monitor-frame {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px;
+    background: #0d1117;
+}
+
+.monitor-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+/* ============================================================
+   Stats bar
+   ============================================================ */
+.stats-bar {
+    border-color: var(--line);
+}
+
+.stat-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600;
+    color: var(--heading);
+}
+
+.stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 0.35rem;
+}
+
+/* ============================================================
+   Terminal panels (skills + projects)
+   ============================================================ */
+.skill-panel, .project-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.skill-panel:hover, .project-panel:hover {
+    border-color: var(--green-dim);
+}
+
+.skill-panel-header, .project-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 0.9rem;
+    background: #0d1117;
+    border-bottom: 1px solid var(--line);
+}
+
+.skill-panel-header .dot, .project-panel-header .dot {
+    width: 8px;
+    height: 8px;
+}
+
+.skill-filename, .project-filename {
+    margin-left: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+}
+
+.skill-panel-body {
+    padding: 1.4rem;
+}
+
+.skill-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+}
+
+.skill-panel-body h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.skill-tools {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   Projects
+   ============================================================ */
+.project-panel-body {
+    padding: 1.6rem;
+}
+
+.project-panel-body h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+}
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tag-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--cyan);
+    background: rgba(86, 212, 221, 0.06);
+}
+
+/* ============================================================
+   Experience timeline
+   ============================================================ */
+.timeline {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 7px;
+    top: 0.4rem;
+    bottom: 0;
+    width: 2px;
+    background: var(--line);
+    transform-origin: top;
+}
+
+.timeline-line-fill {
+    position: absolute;
+    left: 7px;
+    top: 0.4rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--green), var(--cyan));
+    height: 0%;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -2.5rem;
+    top: 0.3rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-marker::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+}
+
+.timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-role {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.timeline-org {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--cyan);
+    margin-bottom: 1.25rem;
+}
+
+.timeline-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 0.85rem;
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.timeline-bullets i {
+    color: var(--green);
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   Credentials
+   ============================================================ */
+.credential-block {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.75rem;
+}
+
+.cred-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #0d1117;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.cred-badge:hover {
+    border-color: var(--amber);
+    transform: translateY(-2px);
+}
+
+.cred-badge i {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: var(--amber);
+    flex-shrink: 0;
+}
+
+.cred-badge span {
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.contact-tile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.6rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--panel);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.contact-tile:hover {
+    border-color: var(--green-dim);
+    transform: translateY(-3px);
+}
+
+.contact-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: #0d1117;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon i,
+.contact-icon svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--green);
+}
+
+.contact-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.15rem;
+}
+
+/* ============================================================
+   Reveal-on-scroll base state
+   ============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+.no-motion .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer a:hover {
+    color: var(--green);
+}
+
+/* ============================================================
+   Reduced motion overrides
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .caret,
+    .status-dot {
+        animation: none;
+    }
+}
