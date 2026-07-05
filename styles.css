@@ -33,6 +33,25 @@ body {
     background-color: var(--bg);
     color: var(--text);
     overflow-x: hidden;
+    position: relative;
+}
+
+/* ============================================================
+   Persistent 3D background — fixed behind the whole page,
+   nudged by scroll progress (see script.js), never scrolls away
+   ============================================================ */
+.vanta-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: -20;
+    overflow: hidden;
+}
+
+#vanta-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
 }
 
 h1, h2, h3, h4, .font-display {
@@ -186,11 +205,10 @@ a {
     position: relative;
 }
 
-#vanta-bg {
-    background: radial-gradient(ellipse at top, #161b22 0%, #0d1117 60%);
-}
-
 .hero-fallback-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -19;
     background:
         linear-gradient(rgba(63, 185, 80, 0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(63, 185, 80, 0.06) 1px, transparent 1px),
@@ -202,6 +220,17 @@ a {
 
 .hero-fallback-bg.show {
     opacity: 1;
+}
+
+.bg-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    background: linear-gradient(180deg,
+        rgba(13, 17, 23, 0.45) 0%,
+        rgba(13, 17, 23, 0.72) 45%,
+        rgba(13, 17, 23, 0.9) 100%);
 }
 
 .status-badge {

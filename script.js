@@ -147,9 +147,8 @@ function runTypewriter() {
 runTypewriter();
 
 // ============================================================
-// Vanta.NET hero background (lazy, guarded)
+// Vanta.GLOBE persistent full-page background (guarded)
 // ============================================================
-const heroSection = document.getElementById('home');
 const fallbackBg = document.querySelector('.hero-fallback-bg');
 let vantaEffect = null;
 
@@ -162,7 +161,7 @@ function initVanta() {
         if (fallbackBg) fallbackBg.classList.add('show');
         return;
     }
-    vantaEffect = VANTA.NET({
+    vantaEffect = VANTA.GLOBE({
         el: '#vanta-bg',
         mouseControls: true,
         touchControls: false,
@@ -172,11 +171,9 @@ function initVanta() {
         scale: 1.0,
         scaleMobile: 1.0,
         color: 0x3fb950,
-        backgroundColor: 0x0d1117,
-        points: 9.0,
-        maxDistance: 22.0,
-        spacing: 18.0,
-        showDots: true
+        color2: 0x56d4dd,
+        size: 1.1,
+        backgroundColor: 0x0d1117
     });
 }
 
@@ -187,21 +184,32 @@ function destroyVanta() {
     }
 }
 
-if (heroSection) {
-    const vantaObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                initVanta();
-            }
-        });
-    }, { threshold: 0.1 });
-    vantaObserver.observe(heroSection);
+// Persistent background: init immediately (not gated on hero visibility)
+// since it now spans the whole page and should never disappear on scroll.
+initVanta();
 
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            destroyVanta();
-        } else if (heroSection.getBoundingClientRect().top < window.innerHeight) {
-            initVanta();
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        destroyVanta();
+    } else {
+        initVanta();
+    }
+});
+
+// Tie the background to scroll position: as the page scrolls down/up,
+// the globe drifts and rotates proportionally (reverses on scroll-up).
+if (!reducedMotion && typeof gsap !== 'undefined' && window.innerWidth >= 768) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('#vanta-bg', {
+        yPercent: -10,
+        xPercent: 4,
+        rotate: 8,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: document.documentElement,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.6
         }
     });
 }
